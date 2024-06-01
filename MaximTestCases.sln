@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximTestCases", "MaximTestCases.csproj", "{B670A3D5-5C27-446F-9A0E-1E2674055DB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B670A3D5-5C27-446F-9A0E-1E2674055DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B670A3D5-5C27-446F-9A0E-1E2674055DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B670A3D5-5C27-446F-9A0E-1E2674055DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B670A3D5-5C27-446F-9A0E-1E2674055DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
