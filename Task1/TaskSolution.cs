@@ -17,13 +17,16 @@ public static class TaskSolution
 
         if (unsuitableLetters.Count > 0)
         {
-            Console.WriteLine("Введены не подходящие символы: " + string.Join(',', unsuitableLetters));
+            Console.WriteLine("Введены не подходящие символы: " + string.Join(", ", unsuitableLetters));
             return;
         }
 
         var modifiedString = GetModifiedString(inputString);
+        var countChars = GetCountChars(modifiedString);
         
         Console.WriteLine("Результат: " + modifiedString);
+        Console.WriteLine("Количество вхождений: " + string.Join(", ", countChars.Select(x => 
+            $"{x.Key} - {x.Value}")));
     }
 
     private static List<char> GetUnsuitableLetters(string str)
@@ -51,5 +54,18 @@ public static class TaskSolution
         Array.Reverse(chars);
 
         return new string(chars) + str;
+    }
+
+    private static Dictionary<char, int> GetCountChars(string str)
+    {
+        var result = new Dictionary<char, int>();
+
+        foreach (var c in str)
+        {
+            result.TryAdd(c, 0);
+            result[c]++;
+        }
+
+        return result;
     }
 }
