@@ -6,7 +6,6 @@ public static class TaskSolution
     {
         Console.Write("Введите строку: ");
         var inputString = Console.ReadLine();
-        Console.Write("Результат: ");
 
         if (string.IsNullOrEmpty(inputString))
         {
@@ -14,22 +13,43 @@ public static class TaskSolution
             return;
         }
 
-        if (inputString.Length % 2 == 0)
+        var unsuitableLetters = GetUnsuitableLetters(inputString);
+
+        if (unsuitableLetters.Count > 0)
         {
-            var part1 = inputString.Substring(0, inputString.Length / 2).ToArray();
-            var part2 = inputString.Substring(inputString.Length / 2).ToArray();
+            Console.WriteLine("Введены не подходящие символы: " + string.Join(',', unsuitableLetters));
+            return;
+        }
+
+        var modifiedString = GetModifiedString(inputString);
+        
+        Console.WriteLine("Результат: " + modifiedString);
+    }
+
+    private static List<char> GetUnsuitableLetters(string str)
+    {
+        var correctLetters = new HashSet<char>("abcdefghijklmnopqrstuvwxyz");
+        
+        return str.Where(c => !correctLetters.Contains(c)).ToList();
+    }
+
+    private static string GetModifiedString(string str)
+    {
+        if (str.Length % 2 == 0)
+        {
+            var part1 = str.Substring(0, str.Length / 2).ToArray();
+            var part2 = str.Substring(str.Length / 2).ToArray();
 
             Array.Reverse(part1);
             Array.Reverse(part2);
 
-            Console.WriteLine(new string(part1) + new string(part2));
-            return;
+            return new string(part1) + new string(part2);
         }
 
-        var chars = inputString.ToArray();
+        var chars = str.ToArray();
 
         Array.Reverse(chars);
 
-        Console.WriteLine(new string(chars) + inputString);
+        return new string(chars) + str;
     }
 }
