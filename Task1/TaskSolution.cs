@@ -1,4 +1,4 @@
-﻿using System.Text;
+using MaximTestCases.Task1.Sorting;
 
 namespace MaximTestCases.Task1;
 
@@ -31,6 +31,10 @@ public static class TaskSolution
         Console.WriteLine("Количество вхождений: " + string.Join(", ", countChars.Select(x => 
             $"{x.Key} - {x.Value}")));
         Console.WriteLine("Самая длинная подстрока начинающаяся и заканчивающаяся на гласную: " + largestSubstring);
+
+        var sortedString = GetSortedString(modifiedString);
+        
+        Console.WriteLine("Отсортированая строка: " + sortedString);
     }
 
     private static List<char> GetUnsuitableLetters(string str)
@@ -72,7 +76,7 @@ public static class TaskSolution
 
         return result;
     }
-
+    
     private static string GetLargestSubstring(string str)
     {
         var vowels = new HashSet<char>("aeiouy");
@@ -91,7 +95,29 @@ public static class TaskSolution
 
         if (startIndex == -1 && endIndex == -1) 
             return "";
-        
+
         return str.Substring(startIndex, endIndex - startIndex + 1);
+    }
+
+    private static string GetSortedString(string str)
+    {
+        while (true)
+        {
+            Console.Write("Выберите способ сортировки из предложенных в скобках (QuickSort / TreeSort) и напишите его: ");
+            var sortingMethod = Console.ReadLine().Trim();
+
+            if (string.IsNullOrEmpty(sortingMethod))
+                Console.WriteLine("Ничего не введено!");
+            else switch (sortingMethod)
+            {
+                case "QuickSort":
+                    return QuickSort.GetSortedString(str);
+                case "TreeSort":
+                    return TreeSort.GetSortedString(str);
+                default:
+                    Console.WriteLine("Ошибка ввода!");
+                    break;
+            }
+        }
     }
 }
