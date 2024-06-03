@@ -1,3 +1,5 @@
+using MaximTestCases.Task1.Sorting;
+
 namespace MaximTestCases.Task1;
 
 public static class TaskSolution
