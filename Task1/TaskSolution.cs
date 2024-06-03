@@ -1,4 +1,4 @@
-﻿using MaximTestCases.Task1.Sorting;
+using MaximTestCases.Task1.Sorting;
 
 namespace MaximTestCases.Task1;
 
