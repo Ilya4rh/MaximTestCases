@@ -1,5 +1,3 @@
-﻿using MaximTestCases.Task1.Sorting;
-
 namespace MaximTestCases.Task1;
 
 public static class TaskSolution
@@ -7,7 +5,7 @@ public static class TaskSolution
     public static void Process()
     {
         Console.Write("Введите строку: ");
-        var inputString = Console.ReadLine().Trim();
+        var inputString = Console.ReadLine();
 
         if (string.IsNullOrEmpty(inputString))
         {
