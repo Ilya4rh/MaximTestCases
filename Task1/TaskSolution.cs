@@ -1,4 +1,6 @@
-﻿namespace MaximTestCases.Task1;
+﻿using MaximTestCases.Task1.Sorting;
+
+namespace MaximTestCases.Task1;
 
 public static class TaskSolution
 {
@@ -23,10 +25,16 @@ public static class TaskSolution
 
         var modifiedString = GetModifiedString(inputString);
         var countChars = GetCountChars(modifiedString);
+        var largestSubstring = GetLargestSubstring(modifiedString);
         
         Console.WriteLine("Результат: " + modifiedString);
         Console.WriteLine("Количество вхождений: " + string.Join(", ", countChars.Select(x => 
             $"{x.Key} - {x.Value}")));
+        Console.WriteLine("Самая длинная подстрока начинающаяся и заканчивающаяся на гласную: " + largestSubstring);
+
+        var sortedString = GetSortedString(modifiedString);
+        
+        Console.WriteLine("Отсортированая строка: " + sortedString);
     }
 
     private static List<char> GetUnsuitableLetters(string str)
@@ -67,5 +75,49 @@ public static class TaskSolution
         }
 
         return result;
+    }
+    
+    private static string GetLargestSubstring(string str)
+    {
+        var vowels = new HashSet<char>("aeiouy");
+        var startIndex = -1;
+        var endIndex = -1;
+
+        for (var i = 0; i < str.Length; i++)
+        {
+            if (!vowels.Contains(str[i])) 
+                continue;
+            if (startIndex == -1) 
+                startIndex = i;
+            if (endIndex < i) 
+                endIndex = i;
+        }
+
+        if (startIndex == -1 && endIndex == -1) 
+            return "";
+
+        return str.Substring(startIndex, endIndex - startIndex + 1);
+    }
+
+    private static string GetSortedString(string str)
+    {
+        while (true)
+        {
+            Console.Write("Выберите способ сортировки из предложенных в скобках (QuickSort / TreeSort) и напишите его: ");
+            var sortingMethod = Console.ReadLine().Trim();
+
+            if (string.IsNullOrEmpty(sortingMethod))
+                Console.WriteLine("Ничего не введено!");
+            else switch (sortingMethod)
+            {
+                case "QuickSort":
+                    return QuickSort.GetSortedString(str);
+                case "TreeSort":
+                    return TreeSort.GetSortedString(str);
+                default:
+                    Console.WriteLine("Ошибка ввода!");
+                    break;
+            }
+        }
     }
 }
