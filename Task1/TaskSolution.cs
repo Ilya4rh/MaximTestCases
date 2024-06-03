@@ -35,6 +35,10 @@ public static class TaskSolution
         var sortedString = GetSortedString(modifiedString);
         
         Console.WriteLine("Отсортированая строка: " + sortedString);
+
+        var stringWithOutRandomChar = GetStringWithOutRandomChar(modifiedString);
+        
+        Console.WriteLine("'Урезанная' обработанная строка – обработанная строка без одного символа: " + stringWithOutRandomChar);
     }
 
     private static List<char> GetUnsuitableLetters(string str)
@@ -118,6 +122,31 @@ public static class TaskSolution
                     Console.WriteLine("Ошибка ввода!");
                     break;
             }
+        }
+    }
+
+    private static string GetStringWithOutRandomChar(string str)
+    {
+        var index = GetRandomNum(str.Length).Result;
+
+        return str.Remove(index, 0);
+    }
+
+    private static async Task<int> GetRandomNum(int maxNum)
+    {
+        try
+        {
+            using var client = new HttpClient();
+            var stringUrl = $"http://www.randomnumberapi.com/api/v1.0/randomredditnumber?min=0&max={maxNum}&count=1";
+            var index = await client.GetStringAsync(stringUrl);
+
+            return int.Parse(index);
+        }
+        catch
+        {
+            var random = new Random();
+
+            return random.Next(maxNum);
         }
     }
 }
