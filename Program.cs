@@ -1,11 +1,12 @@
 using MaximTestCases.Task1;
+using MaximTestCases.WordsBlackListLogic;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.TryAddWordsBlackList();
 
 // Первое задание
 // TaskSolution.Process();
