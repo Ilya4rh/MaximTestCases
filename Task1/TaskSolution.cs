@@ -1,44 +1,29 @@
+using MaximTestCases.Controllers.Response;
 using MaximTestCases.Task1.Sorting;
 
 namespace MaximTestCases.Task1;
 
 public static class TaskSolution
 {
-    public static void Process()
+    public static TaskAnswerResponse GetTaskAnswerResponse(string inputString)
     {
-        Console.Write("Введите строку: ");
-        var inputString = Console.ReadLine();
-
         if (string.IsNullOrEmpty(inputString))
-        {
-            Console.WriteLine("");
-            return;
-        }
+            throw new NullReferenceException("Получена пустая строка!");
 
         var unsuitableLetters = GetUnsuitableLetters(inputString);
 
         if (unsuitableLetters.Count > 0)
-        {
-            Console.WriteLine("Введены не подходящие символы: " + string.Join(", ", unsuitableLetters));
-            return;
-        }
+            throw new Exception("Введены не подходящие символы: " + string.Join(", ", unsuitableLetters));
 
         var modifiedString = GetModifiedString(inputString);
         var countChars = GetCountChars(modifiedString);
         var largestSubstring = GetLargestSubstring(modifiedString);
-        
-        Console.WriteLine("Результат: " + modifiedString);
-        Console.WriteLine("Количество вхождений: " + string.Join(", ", countChars.Select(x => 
-            $"{x.Key} - {x.Value}")));
-        Console.WriteLine("Самая длинная подстрока начинающаяся и заканчивающаяся на гласную: " + largestSubstring);
-
+        var countCharsString = string.Join(", ", countChars.Select(x => $"{x.Key} - {x.Value}"));
         var sortedString = GetSortedString(modifiedString);
-        
-        Console.WriteLine("Отсортированая строка: " + sortedString);
-
         var stringWithOutRandomChar = GetStringWithOutRandomChar(modifiedString);
-        
-        Console.WriteLine("'Урезанная' обработанная строка – обработанная строка без одного символа: " + stringWithOutRandomChar);
+
+        return new TaskAnswerResponse(modifiedString, countCharsString, largestSubstring, sortedString,
+            stringWithOutRandomChar);
     }
 
     private static List<char> GetUnsuitableLetters(string str)
