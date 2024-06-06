@@ -17,8 +17,8 @@ public static class TaskSolution
 
         var modifiedString = GetModifiedString(inputString);
         var countChars = GetCountChars(modifiedString);
-        var largestSubstring = GetLargestSubstring(modifiedString);
         var countCharsString = string.Join(", ", countChars.Select(x => $"{x.Key} - {x.Value}"));
+        var largestSubstring = GetLargestSubstring(modifiedString);
         var sortedString = GetSortedString(modifiedString);
         var stringWithOutRandomChar = GetStringWithOutRandomChar(modifiedString);
 
@@ -33,7 +33,7 @@ public static class TaskSolution
         return str.Where(c => !correctLetters.Contains(c)).ToList();
     }
 
-    private static string GetModifiedString(string str)
+    public static string GetModifiedString(string str)
     {
         if (str.Length % 2 == 0)
         {
@@ -53,7 +53,7 @@ public static class TaskSolution
         return new string(chars) + str;
     }
 
-    private static Dictionary<char, int> GetCountChars(string str)
+    public static Dictionary<char, int> GetCountChars(string str)
     {
         var result = new Dictionary<char, int>();
 
@@ -66,7 +66,7 @@ public static class TaskSolution
         return result;
     }
     
-    private static string GetLargestSubstring(string str)
+    public static string GetLargestSubstring(string str)
     {
         var vowels = new HashSet<char>("aeiouy");
         var startIndex = -1;
@@ -110,11 +110,11 @@ public static class TaskSolution
         }
     }
 
-    private static string GetStringWithOutRandomChar(string str)
+    public static string GetStringWithOutRandomChar(string str)
     {
         var index = GetRandomNum(str.Length).Result;
 
-        return str.Remove(index, 0);
+        return str.Remove(index, 1);
     }
 
     private static async Task<int> GetRandomNum(int maxNum)
