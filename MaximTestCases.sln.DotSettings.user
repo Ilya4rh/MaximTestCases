@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bee3b694_002Da573_002D467e_002Db52c_002D687754ea4375/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CheckModifiedString" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::B670A3D5-5C27-446F-9A0E-1E2674055DB1::net6.0::MaximTestCases.Tests.TaskTests.CheckModifiedString&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::B670A3D5-5C27-446F-9A0E-1E2674055DB1::net6.0::MaximTestCases.Tests.TaskTests.CheckCountChars&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::B670A3D5-5C27-446F-9A0E-1E2674055DB1::net6.0::MaximTestCases.Tests.TaskTests.CheckLargestSubstring&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::B670A3D5-5C27-446F-9A0E-1E2674055DB1::net6.0::MaximTestCases.Tests.TaskTests.CheckSortedString&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::B670A3D5-5C27-446F-9A0E-1E2674055DB1::net6.0::MaximTestCases.Tests.TaskTests.CheckLengthStringWithOutRandomChar&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
