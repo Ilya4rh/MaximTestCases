@@ -1,3 +1,4 @@
+using MaximTestCases.RequestsLimitLogic;
 using MaximTestCases.Task1;
 using MaximTestCases.WordsBlackListLogic;
 
@@ -7,6 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.TryAddWordsBlackList();
+builder.Services.TryAddRequestsLimit();
 
 // Первое задание
 // TaskSolution.Process();
